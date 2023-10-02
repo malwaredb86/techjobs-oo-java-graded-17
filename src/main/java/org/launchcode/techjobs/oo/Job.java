@@ -94,20 +94,20 @@ public class Job {
             name = "Data not available";
         }
         if (employer.getValue().isEmpty()) {
-            employer.setValue("Data is not available");
+            employer.setValue("Data not available");
         }
         if (location.getValue().isEmpty()) {
-            location.setValue("Data is not available");
+            location.setValue("Data not available");
         }
         if (positionType.getValue().isEmpty()) {
-            positionType.setValue("Data is not available");
+            positionType.setValue("Data not available");
         }
         if (coreCompetency.getValue().isEmpty()) {
-            coreCompetency.setValue("Data is not available");
+            coreCompetency.setValue("Data not available");
         }
-        if (name == null && employer.getValue().equals("Data is not available") && location.getValue().equals("Data is not available") && positionType.getValue().equals("Data is not available") && coreCompetency.getValue().equals("Data is not available")) {
+        if (name == null && employer.getValue().equals("Data not available") && location.getValue().equals("Data not available") && positionType.getValue().equals("Data not available") && coreCompetency.getValue().equals("Data not available")) {
             return "OOPS! this job does not seem to exist.";
-        } else return nextLine + "ID: " + id + nextLine + "Name: " + name + nextLine + "Employer: " + employer + nextLine + "Location: " + location + nextLine + "Position Type: " + positionType + nextLine + "Core Competency: " + coreCompetency;
+        } else return nextLine + "ID: " + id + nextLine + "Name: " + name + nextLine + "Employer: " + employer + nextLine + "Location: " + location + nextLine + "Position Type: " + positionType + nextLine + "Core Competency: " + coreCompetency + nextLine;
     }
 
 

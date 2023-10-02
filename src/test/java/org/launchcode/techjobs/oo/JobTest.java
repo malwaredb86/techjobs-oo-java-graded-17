@@ -39,11 +39,13 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-        //Job jobExample = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-       // String str = "ID: " + jobExample.getId() + "\nName: " + jobExample.getName() + "\nEmployer: " + jobExample.getEmployer() + "\nLocation: " + jobExample.getLocation() + "\nPosition Type: " + jobExample.getPositionType() + "\nCore Competency: " + jobExample.getCoreCompetency();
-        String str = "job data";
-        String expected = "\n" + str + "\n";
-        assertEquals(expected, str.toString());
+        Job jobExample = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String str = "ID: " + jobExample.getId() + "\nName: " + jobExample.getName() + "\nEmployer: " + jobExample.getEmployer() + "\nLocation: " + jobExample.getLocation() + "\nPosition Type: " + jobExample.getPositionType() + "\nCore Competency: " + jobExample.getCoreCompetency();
+        String jobString = jobExample.toString();
+        String newLine = System.lineSeparator();
+        assertTrue(jobString.startsWith(newLine));
+        assertTrue(jobString.endsWith(newLine));
+
     }
 
     @Test
@@ -58,11 +60,11 @@ public class JobTest {
         String expected = "\nID: " + 1 + "\nName: " + "Data not available" + "\nEmployer: " + "ACME" + "\nLocation: " + "Desert" + "\nPosition Type: " + "Quality control"+ "\nCore Competency: " + "Persistence";
         assertEquals(expected, jobExample.toString());
     }
- //   @Test
- //   public void testToStringHandlesOnlyIDSet() {
-//        Job jobExample = new Job();
- //       String expected = "OOPS! This job does not seem to exist.";
-//        assertEquals(expected, jobExample.toString());
-//    }
+  //  @Test
+   // public void testToStringHandlesOnlyIDSet() {
+     //   Job jobExample = new Job();
+     //   String expected = "OOPS! This job does not seem to exist.";
+      //  assertEquals(expected, jobExample.toString());
+  //  }
     //TODO: Create your unit tests here
 }
