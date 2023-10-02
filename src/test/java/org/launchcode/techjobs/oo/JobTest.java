@@ -36,5 +36,33 @@ public class JobTest {
         Job jobB = new Job();
         assertFalse(jobA.getId() == jobB.getId());
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine(){
+        //Job jobExample = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+       // String str = "ID: " + jobExample.getId() + "\nName: " + jobExample.getName() + "\nEmployer: " + jobExample.getEmployer() + "\nLocation: " + jobExample.getLocation() + "\nPosition Type: " + jobExample.getPositionType() + "\nCore Competency: " + jobExample.getCoreCompetency();
+        String str = "job data";
+        String expected = "\n" + str + "\n";
+        assertEquals(expected, str.toString());
+    }
+
+    @Test
+    public void testToStringContainsCorrectLabelsAndData(){
+        Job jobExample = new Job("Product Tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String expected = "\nID: " + 1 + "\nName: " + "Product Tester" + "\nEmployer: " + "ACME" + "\nLocation: " + "Desert" + "\nPosition Type: " + "Quality control"+ "\nCore Competency: " + "Persistence";
+        assertEquals(expected, jobExample.toString());
+    }
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job jobExample = new Job( null, new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String expected = "\nID: " + 1 + "\nName: " + "Data not available" + "\nEmployer: " + "ACME" + "\nLocation: " + "Desert" + "\nPosition Type: " + "Quality control"+ "\nCore Competency: " + "Persistence";
+        assertEquals(expected, jobExample.toString());
+    }
+ //   @Test
+ //   public void testToStringHandlesOnlyIDSet() {
+//        Job jobExample = new Job();
+ //       String expected = "OOPS! This job does not seem to exist.";
+//        assertEquals(expected, jobExample.toString());
+//    }
     //TODO: Create your unit tests here
 }
